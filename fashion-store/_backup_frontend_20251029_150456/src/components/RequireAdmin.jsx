@@ -1,0 +1,1 @@
+import { Navigate, useLocation } from "react-router-dom";import { getAuth } from "../utils/auth";export default function RequireAdmin({ children }) {  const auth = getAuth();  const loc = useLocation();  if (!auth?.token) return <Navigate to="/admin/login" replace state={{ from: loc }} />;  if (auth?.user?.role !== "admin") return <Navigate to="/" replace />;  return children;}

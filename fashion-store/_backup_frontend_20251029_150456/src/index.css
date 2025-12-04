@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base resets / polish ---------- */
+:root {
+  --al-bg: #0a0a0a;
+  --al-fg: #ffffff;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply antialiased text-[15px] bg-white text-neutral-900;
+}
+
+/* Dark mode body */
+.dark body {
+  @apply bg-neutral-950 text-neutral-50;
+}
+
+/* Smooth images */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Utility helpers you might already use */
+.al-container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+/* Optional: sticky navbar shadow helper */
+.nav-shadow {
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+}

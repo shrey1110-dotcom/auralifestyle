@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Help Desk – SIH 2025 Presentation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root {
+  --bg:#f5f7fb; --card:#fff; --accent:#0b5ebf; --text:#111; --muted:#555;
+  --border:#d9e2ec; --radius:14px; --shadow:0 4px 14px rgba(0,0,0,0.08);
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+}
+body { margin:0; background:var(--bg); color:var(--text); }
+header { padding:14px 24px; background:#0d1d2e; color:#fff; display:flex; align-items:center; justify-content:space-between; }
+header h1 { margin:0; font-size:20px; letter-spacing:.5px; }
+#slides { position:relative; max-width:1080px; margin:0 auto; padding:20px 28px 100px; }
+.slide {
+  background:var(--card); padding:42px 54px; margin:0 auto 32px;
+  box-shadow:var(--shadow); border-radius:var(--radius); display:none;
+  animation:fIn .45s ease;
+}
+.slide.active { display:block; }
+@keyframes fIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0);} }
+
+h2 { margin-top:0; font-size:40px; letter-spacing:1px; text-align:center; }
+h3 { font-size:24px; margin:22px 0 8px; }
+ul { line-height:1.55; font-size:18px; }
+li { margin-bottom:8px; }
+.badge { background:#edf2fa; padding:4px 10px; border-radius:6px; font-size:12px; display:inline-block; margin:4px 4px 0 0; }
+.navbar {
+  position:fixed; bottom:0; left:0; right:0; background:#0d1d2e; color:#fff;
+  display:flex; gap:12px; padding:10px 16px; flex-wrap:wrap; align-items:center;
+}
+.navbar button {
+  background:var(--accent); color:#fff; border:none; padding:8px 16px;
+  border-radius:8px; cursor:pointer; font-weight:600; letter-spacing:.5px;
+  box-shadow:0 2px 6px rgba(0,0,0,.3);
+}
+.navbar button.secondary { background:#1f2f44; }
+.navbar span { font-size:14px; margin-left:auto; }
+.diagram {
+  background:#0d1d2e; color:#d1e6ff; padding:14px 20px; border-radius:10px;
+  font-family:monospace; font-size:14px; line-height:1.4; overflow:auto;
+  box-shadow:inset 0 0 0 1px #1e3c5e;
+}
+.grid2 { display:grid; gap:26px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:10px; }
+.card-mini { background:#fafcff; border:1px solid var(--border); padding:18px 20px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.04); }
+footer { text-align:center; font-size:12px; padding:10px; color:var(--muted); }
+.tagline { text-align:center; font-size:18px; margin-top:-12px; color:#0b5ebf; font-weight:600; }
+
+.progress { height:6px; background:#e0e7ef; border-radius:4px; overflow:hidden; margin:0 0 24px; }
+.progress div { height:100%; width:0; background:linear-gradient(90deg,#0b5ebf,#4cc9f0); }
+
+@media print {
+  .navbar { display:none; }
+  .slide { display:block !important; box-shadow:none; page-break-after:always; }
+  body { background:#fff; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>SMART HELP DESK – SIH 2025</h1>
+  <div style="font-size:14px; text-align:right">
+    Team: <strong>Your Team Name</strong><br>
+    Tagline: Unified Intelligent IT Support
+  </div>
+</header>
+<div id="slides">
+  <div class="progress"><div id="bar"></div></div>
+
+  <!-- Slide 1 -->
+  <section class="slide active" data-title="Idea Title">
+    <h2>SMART HELP DESK</h2>
+    <p class="tagline">From Issue to Resolution – Faster, Smarter, Unified.</p>
+    <h3>Vision</h3>
+    <ul>
+      <li>Single intelligent platform for all IT support channels.</li>
+      <li>Reduce manual triage & accelerate first-contact resolution.</li>
+      <li>Deliver self-service + automated routing using lightweight AI.</li>
+      <li>PWA for mobile/offline access by field engineers.</li>
+      <li>Plug adapters for legacy systems (GLPI / Solman) effortlessly.</li>
+    </ul>
+    <h3>Key Pillars</h3>
+    <div class="grid2">
+      <div class="card-mini"><strong>Unified Ingestion</strong><br>Web, Chatbot, Email, Adapters.</div>
+      <div class="card-mini"><strong>Smart Classification</strong><br>Rule-based NLP + confidence.</div>
+      <div class="card-mini"><strong>Intelligent Routing</strong><br>Team + priority + historical prior.</div>
+      <div class="card-mini"><strong>Rapid Resolution</strong><br>KB suggestions & self-service.</div>
+      <div class="card-mini"><strong>Multi Alerts</strong><br>Email / SMS / Webhooks.</div>
+      <div class="card-mini"><strong>Scalable Core</strong><br>FastAPI + React + TF‑IDF.</div>
+    </div>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide" data-title="Proposed Solution">
+    <h2>PROPOSED SOLUTION</h2>
+    <h3>Problem Addressed</h3>
+    <ul>
+      <li>Fragmented channels causing slow resolution.</li>
+      <li>Manual triage + inconsistent priorities.</li>
+      <li>Limited self-service; repetitive user queries.</li>
+      <li>Poor visibility & delayed stakeholder alerts.</li>
+    </ul>
+    <h3>Solution Highlights</h3>
+    <ul>
+      <li>Unified API handles Web, Chat, Email, GLPI/Solman.</li>
+      <li>Automatic classification & routing with deterministic rules.</li>
+      <li>Historical learning adjusts low-confidence routing.</li>
+      <li>Instant KB article suggestions (TF‑IDF similarity).</li>
+      <li>Auto-assignment to engineer roster (round-robin).</li>
+      <li>Installable React PWA + offline asset cache.</li>
+    </ul>
+    <h3>Uniqueness</h3>
+    <ul>
+      <li>Hybrid routing (rules + historical prior).</li>
+      <li>Adapter pattern reduces integration friction.</li>
+      <li>Privacy-friendly (no mandatory external ML calls).</li>
+      <li>Rapid extension: add channel or KB entry in minutes.</li>
+    </ul>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide" data-title="Technical Approach">
+    <h2>TECHNICAL APPROACH</h2>
+    <h3>Architecture Diagram</h3>
+    <pre class="diagram">[Web Form] --\
+[Chatbot ] ---+--> /tickets/ingest --> [Classifier] --> [Router] --> [Ticket DB]
+[Email IMAP] -/              |               |
+[GLPI/Solman] ---> adapters  |               +--> [Alerts Layer]
+                  [KB Engine]<--+                   (Email/SMS/Webhooks)
+React PWA <---------------------------------------------------- (list / patch / chat)</pre>
+    <h3>Stack</h3>
+    <ul>
+      <li>Backend: FastAPI + SQLAlchemy + SQLite (→ Postgres).</li>
+      <li>NLP: Rule-based classification + confidence scoring.</li>
+      <li>KB: TF‑IDF vector search (scikit-learn).</li>
+      <li>Frontend: React (Vite) + Service Worker + Manifest.</li>
+      <li>Notifications: SMTP (smtp4dev), optional SMS (Twilio), Discord/Telegram.</li>
+      <li>Adapters: GLPI / Solman mapping to unified model.</li>
+    </ul>
+    <h3>Methodology (Phases)</h3>
+    <ul>
+      <li>MVP → Ingestion + Classification + KB + Alerts.</li>
+      <li>Enhancement → Auto-assign + Historical Prior + PWA.</li>
+      <li>Scaling → Postgres + Metrics + Dashboard.</li>
+      <li>Advanced → RBAC, embedding classifier, SLA timers.</li>
+    </ul>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide" data-title="Feasibility & Viability">
+    <h2>FEASIBILITY & VIABILITY</h2>
+    <h3>Feasibility</h3>
+    <ul>
+      <li>Open-source stack; low infra cost; local/offline friendly.</li>
+      <li>Deterministic classification ensures transparency.</li>
+      <li>Adapters simplify legacy tool convergence.</li>
+    </ul>
+    <h3>Challenges & Mitigation</h3>
+    <ul>
+      <li>Uncommon issues misclassified → fallback “ServiceDesk” + human override.</li>
+      <li>Alert overload → configurable ALERT_EVENTS + severity filters.</li>
+      <li>SMS constraints (DLT) → multi-channel (Email/Telegram) backup.</li>
+      <li>Security & PII → planned RBAC & audit logs.</li>
+    </ul>
+    <h3>Scalability Path</h3>
+    <ul>
+      <li>Horizontal API scaling via containers.</li>
+      <li>Upgrade to embeddings for large KB sets.</li>
+      <li>Add Observability (Prometheus/Grafana).</li>
+      <li>Multi-tenancy & role-based partitioning.</li>
+    </ul>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide" data-title="Impact & Benefits">
+    <h2>IMPACT & BENEFITS</h2>
+    <h3>Impact</h3>
+    <ul>
+      <li>First response time drastically reduced.</li>
+      <li>Self-service resolution rate improved.</li>
+      <li>Unified visibility for management & analytics.</li>
+    </ul>
+    <h3>Benefits</h3>
+    <ul>
+      <li>Operational efficiency: fewer manual triage steps.</li>
+      <li>User satisfaction: immediate KB suggestions & chat guidance.</li>
+      <li>Cost optimization: automation lowers per-ticket handling cost.</li>
+      <li>Scalable foundation for future AI integrations.</li>
+    </ul>
+    <h3>Projected KPIs</h3>
+    <ul>
+      <li>↓ First Response Time (hours → minutes).</li>
+      <li>↑ Self-Service Resolution (20–35%).</li>
+      <li>↓ Misrouting (to &lt; 5%).</li>
+      <li>↑ Engineer Productivity (focus on complex issues).</li>
+    </ul>
+  </section>
+
+  <!-- Slide 6 -->
+  <section class="slide" data-title="Future Roadmap">
+    <h2>FUTURE ROADMAP</h2>
+    <div class="grid2">
+      <div class="card-mini"><strong>RBAC & SSO</strong><br>Secure access & roles.</div>
+      <div class="card-mini"><strong>SLA Engine</strong><br>Timers, escalation rules.</div>
+      <div class="card-mini"><strong>Vector KB</strong><br>Embedding search upgrade.</div>
+      <div class="card-mini"><strong>Analytics Dashboard</strong><br>Trends, heatmaps.</div>
+      <div class="card-mini"><strong>Similar Ticket Merge</strong><br>Duplication reduction.</div>
+      <div class="card-mini"><strong>WhatsApp / Teams</strong><br>New communication channels.</div>
+      <div class="card-mini"><strong>Agent Assist</strong><br>Suggested resolution via local LLM.</div>
+      <div class="card-mini"><strong>Observability</strong><br>Prometheus + Grafana metrics.</div>
+    </div>
+    <h3>Strategic Differentiators</h3>
+    <ul>
+      <li>Modular ingestion → plug any future tool.</li>
+      <li>Privacy-first optional AI usage.</li>
+      <li>Incremental ML evolution (no big bang).</li>
+      <li>Ready for enterprise compliance layers.</li>
+    </ul>
+  </section>
+
+  <!-- Slide 7 -->
+  <section class="slide" data-title="Demo Flow">
+    <h2>DEMO FLOW</h2>
+    <ol style="font-size:18px; line-height:1.6">
+      <li>User submits “VPN keeps disconnecting” → classification (vpn), routing (Network, P2), KB suggestion (“VPN Access and Setup”).</li>
+      <li>Chatbot: “I forgot my password” → guidance → “create ticket” → ticket appears instantly.</li>
+      <li>Show unified list (web + chat + adapter example GLPI/Solman).</li>
+      <li>Demonstrate historical routing after multiple vpn tickets (low-confidence fallback uses past pattern).</li>
+      <li>Install PWA (Add to Home Screen) & show offline shell.</li>
+      <li>Optional: Display alert email in smtp4dev or webhook message.</li>
+      <li>Engineer triggers contact requester endpoint; simulated email/SMS (if enabled).</li>
+    </ol>
+  </section>
+
+  <!-- Slide 8 -->
+  <section class="slide" data-title="Summary & Pitch">
+    <h2>SUMMARY & PITCH</h2>
+    <h3>One-Liner</h3>
+    <p style="font-size:20px; font-weight:600; color:#0b5ebf">
+      “An installable, AI-powered helpdesk unifying all ticket sources into smart, self-healing workflows.”
+    </p>
+    <h3>Value Proposition</h3>
+    <ul>
+      <li>Unified channel consolidation reduces friction.</li>
+      <li>Actionable automation – classification + routing + assignment.</li>
+      <li>Self-service first approach increases resolution speed.</li>
+      <li>Future-ready modular architecture & compliance pathway.</li>
+    </ul>
+    <h3>Call to Action</h3>
+    <ul>
+      <li>Adopt as pilot for POWERGRID internal IT support.</li>
+      <li>Extend KB corpus & integrate vector embeddings for scale.</li>
+      <li>Add SLA dashboards + live metrics for executive oversight.</li>
+    </ul>
+  </section>
+
+</div>
+<div class="navbar" id="nav">
+  <button id="prev" class="secondary">&larr; Prev</button>
+  <button id="next">Next &rarr;</button>
+  <button id="print" class="secondary">Print / Export PDF</button>
+  <span id="indicator"></span>
+</div>
+<footer>
+  Smart Help Desk &mdash; SIH 2025 Presentation • Generated Demo Page
+</footer>
+
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+let idx = 0;
+const indicator = document.getElementById('indicator');
+const bar = document.getElementById('bar');
+
+function show(i){
+  slides.forEach(s => s.classList.remove('active'));
+  slides[i].classList.add('active');
+  idx = i;
+  indicator.textContent = (i+1) + ' / ' + slides.length + ' — ' + slides[i].dataset.title;
+  bar.style.width = ((i+1)/slides.length*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('next').onclick = () => show((idx+1)%slides.length);
+document.getElementById('prev').onclick = () => show((idx-1+slides.length)%slides.length);
+document.getElementById('print').onclick = () => window.print();
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') document.getElementById('next').click();
+  if(e.key === 'ArrowLeft') document.getElementById('prev').click();
+});
+
+show(0);
+</script>
+</body>
+</html>

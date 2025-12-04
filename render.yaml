@@ -1,0 +1,13 @@
+# render.yaml — BACKEND (Render)
+services:
+  - type: web
+    name: auralifestyle-api
+    env: node
+    rootDir: fashion-store/fashion-store-backend
+    buildCommand: npm ci
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"

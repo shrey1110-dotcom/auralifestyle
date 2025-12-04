@@ -1,0 +1,1 @@
+export default function StatCard({ title, value, sub }) {  return (    <div className="card stat">      <div className="stat-top">        <span className="stat-title">{title}</span>      </div>      <div className="stat-value">{value}</div>      {sub ? <div className="stat-sub">{sub}</div> : null}    </div>  );}

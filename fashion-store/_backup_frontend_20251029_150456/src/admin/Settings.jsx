@@ -1,0 +1,1 @@
+export default function Settings() {  return (    <div className="card">      <div className="card-title">Settings</div>      <p>Coming soon: staff users, roles & permissions, webhooks, email templates…</p>    </div>  );}

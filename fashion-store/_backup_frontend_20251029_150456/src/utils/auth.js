@@ -1,0 +1,1 @@
+export function getAuth() {  try { return JSON.parse(localStorage.getItem("auth")) || null; }  catch { return null; }}export function setAuth(a) {  localStorage.setItem("auth", JSON.stringify(a));}export function clearAuth() {  localStorage.removeItem("auth");}export function isAdmin() {  const a = getAuth();  return a?.user?.role === "admin";}
